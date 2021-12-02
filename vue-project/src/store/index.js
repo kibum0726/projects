@@ -1,8 +1,7 @@
 import { createStore } from "vuex";
-
-export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
-});
+import {movie} from "./modules/movie.js";
+export const store = createStore({
+    modules : {
+        movie : movie,
+    }
+})
