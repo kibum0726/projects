@@ -2,6 +2,7 @@
   <Search/>
   <div>
     asd
+    <button type="button" @click="go"> bbb </button>
   </div>
 </template>
 
@@ -15,6 +16,13 @@ export default {
   },
   setup(){
     onMounted(()=>console.log(process.env))
+    const go= ()=>{
+      this.$router.push('Info')
+    }
+    return{
+      go
+    }
+
   }
 }
 </script>
