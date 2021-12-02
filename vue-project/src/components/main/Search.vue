@@ -24,7 +24,7 @@ export default {
     const search = ref("")
     const submit = ()=>{
       console.log(search.value)
-      store.dispatch('movie/searchMovies',{movieName : search.value, display : 10})
+      store.dispatch('movie/searchMovies',{movieName : search.value, display : '10'})
     }
     return {
       search,submit
