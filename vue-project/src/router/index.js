@@ -14,13 +14,14 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Info/Info.vue"),
+      import(/* webpackChunkName: "about" */ "@/views/Info/Info.vue"),
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
+  linkActivateClass : 'active',
   routes,
 });
+export default router
 
-export default router;

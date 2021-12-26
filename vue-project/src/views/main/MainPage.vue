@@ -1,32 +1,20 @@
 <template>
   <Search/>
-  <div>
-    asd
-    <button type="button" @click="go"> bbb </button>
-  </div>
+  <Rank/>
 </template>
 
 <script>
 import Search from '@/components/main/Search'
-import {onMounted } from 'vue'
+import Rank from '@/components/main/Rank'
 export default {
   name: "MainPage",
   components : {
-    Search
+    Search,Rank
   },
   setup(){
-    onMounted(()=>console.log(process.env))
-    const go= ()=>{
-      this.$router.push('Info')
-    }
-    return{
-      go
-    }
-
   }
 }
 </script>
-
 <style scoped>
 
 </style>

@@ -1,10 +1,10 @@
 <template>
   <Header/>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div>
+    <router-link to="/">HOME</router-link>
+    <router-link to="/info">Info</router-link>
   </div>
-  <router-view />
+  <router-view></router-view>
 </template>
 <script>
   import Header from '@/components/common/Header'

@@ -2,10 +2,10 @@ import axios from 'axios'
 export const movie = {
     namespaced : true,
     state : () =>({
-        movieInfo : null,
+        movieInfo : ['a'],
     }),
     getters : {
-        getMovieInfo : (state) => state.movieInfo
+        getMovieInfo : (state) => { return state.movieInfo}
     },
     mutations : {
         setMovieInfo : (state,value) => state.movieInfo = value
@@ -13,7 +13,6 @@ export const movie = {
     actions  : {
         searchMovies : ({commit},value) => {
             console.log(value.movieName)
-            console.log(value.display)
             axios({
                 method : 'get',
                 params : {
@@ -21,8 +20,10 @@ export const movie = {
                    display : value.display
                 },
                 url : `http://localhost:3000/movie/search`,
+            }).then((res)=>{
+                console.log(res.data)
+                commit('setMovieInfo',res.data)
             })
-            commit('setMovieInfo','s')
         }
     }
 }

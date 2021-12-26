@@ -18,6 +18,7 @@ router.get('/search', function(req, res, next) {
         }
     }).then((responses)=>{
         console.log(responses.data)
+        res.json(responses.data)
     })
 });
 
