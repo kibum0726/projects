@@ -24,6 +24,11 @@ export const movie = {
                 console.log(res.data)
                 commit('setMovieInfo',res.data)
             })
-        }
+        },
+        searchRankings : ({commit},value) => {
+            let sunday = dayjs.format('YYYYMMDD') === dayjs().weekday(6).format('YYYYMMDD') ?
+            dayjs().weekday(6).format('YYYYMMDD') : dayjs().weekday(-6).format('YYYYMMDD')
+            console.log(sunday)
+        },
     }
 }

@@ -9,15 +9,18 @@
 <script>
 import {reactive} from 'vue'
 import RankCard from '@/components/main/RankCard'
+import {useStore} from 'vux'
 export default {
   name: "Rank",
   components : {
     RankCard
   },
   setup(){
+    const store = useStore()
     const ranking = reactive([1,2,3,4,5,6,7,8,9,10])
+    const test = store.dispatch('movie/searchRankings')
     return{
-      ranking
+      ranking,test
     }
   }
 }
