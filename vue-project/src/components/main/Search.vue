@@ -1,6 +1,5 @@
 <template>
   <div class="input-group mb-3 fluid p-4">
-
     <input type="text" class="form-control"
            placeholder="영화 제목을 입력해 주세요"
            aria-label="Example text with button addon"
