@@ -18,13 +18,13 @@ export default {
   setup(){
     const store = useStore()
     const mode = ref(0)
-    store.dispatch('movie/searchRankings',0)
+    store.dispatch('movie/searchRankings')
     const movieRankings = computed({
       get(){
         return store.getters['movie/getMovieRankings']
       },
-      set(value){
-        store.dispatch('movie/searchRankings',value)
+      set(){
+        store.dispatch('movie/searchRankings')
       }
     });
     return{

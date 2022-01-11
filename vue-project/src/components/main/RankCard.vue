@@ -1,23 +1,30 @@
 <template>
   <div class="card mx-1 my-1">
-    <img src="" class="card-img-top" alt="영화 포스터">
+<!--    <img :src="info.image" alt="영화 포스터"-->
+<!--           fluid style="width:125px; height:204px;"/>-->
+    <div style="width:125px; height:204px; background-color:red">
+    </div>
     <div class="card-body">
-      <p class="card-text">{{ info }}</p>
-      <i :class="{
-          'bi bi-caret-down-fill rankUp' : change %2===0 ,
-          'bi bi-caret-up-fill rankDown' : change %2!==0
-      }"></i>
+      <p class="card-text">{{ info.movieNm || '이름이름이름'}}</p>
+      <div v-if="info.rankOldAndNew === 'NEW'">
+        {{info.rank}}
+        <i class="material-icons" style="color:red">
+          fiber_new
+        </i>
+      </div>
+      <div v-else>
+        {{info.rank}}
+      </div>
     </div>
   </div>
 </template>
-
 <script>
 import {reactive} from 'vue'
 export default {
   name: "RankCard",
   props:{
     movieRank : {
-      type : Array
+      type : Object
     }
   },
   setup(props){
