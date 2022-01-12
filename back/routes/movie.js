@@ -11,12 +11,16 @@ const request = axios.create({
     language: "ko-KR",
   }
 });
-router.get('/search', function(req, res, next) {
-
-});
 router.get('/rankings',async function(req, res, next){
     request.get("movie/popular")
         .then((responses)=>{
+            res.json(responses.data)})
+        .catch((err)=>{res.json(err)})
+})
+router.get('/details/:id',async function(req,res){
+    request.get(`movie/${req.params.id}`)
+        .then((responses)=>{
+            console.log(responses)
             res.json(responses.data)})
         .catch((err)=>{res.json(err)})
 })

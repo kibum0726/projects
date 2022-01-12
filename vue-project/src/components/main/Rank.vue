@@ -1,5 +1,5 @@
 <template>
-  <div class="row row-cols-1 row-cols-md-5 g-3 mx-4 p-4" style="background: gray">
+  <div class="row row-cols-1 row-cols-md-5 g-3 mx-4 p-2 bg-dark">
     <div v-for="(rankInfo,index) in movieRankings" :key="index">
       <RankCard :movieRank="rankInfo" class="col"/>
     </div>
