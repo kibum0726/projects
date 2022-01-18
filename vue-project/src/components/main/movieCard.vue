@@ -12,7 +12,7 @@
 import {reactive,inject} from 'vue'
 import {useRouter} from 'vue-router'
 export default {
-  name: "RankCard",
+  name: "movieCard",
   props:{
     movieRank : {
       type : Object
@@ -43,5 +43,10 @@ export default {
   }
   .rankDown{
     color: blue
+  }
+  img {
+    display: inline-block;
+    width: 100%;
+    height: auto;
   }
 </style>

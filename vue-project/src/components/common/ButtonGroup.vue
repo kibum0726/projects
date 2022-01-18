@@ -10,22 +10,16 @@
 
 <script>
 import {reactive} from 'vue'
-import {useStore} from 'vuex'
 export default {
   name: "ButtonGroup",
   setup(){
-    const store = useStore()
     const mode = reactive([
       {text : '전체',value : 0},
       {text :'국내',value :'K'},
       {text : '외국', value : 'F'}
     ])
-    store.dispatch('movie/searchRankings',{repNationCd : 0})
-    const searchRank = (value) =>{
-      store.dispatch('movie/searchRankings',{repNationCd : value})
-    }
     return{
-      mode,searchRank
+      mode
     }
   }
 }

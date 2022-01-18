@@ -3,34 +3,31 @@ export const movie = {
     namespaced : true,
     state : () =>({
         rankings : [],
-        detail : {}
+        detail : {},
+        video : []
     }),
     getters : {
         getMovieRankings : (state) => state.rankings,
-        getDetails : (state) => state.detail
+        getDetails : (state) => state.detail,
+        getVideo : (sate) => state.video,
     },
     mutations : {
-        setRankings : (state,value) => state.rankings = value,
-        setDetails: (state,value) => state.detail = value
+        setRankings : (state,value) => state.rankings = value.results,
+        setDetails: (state,value) => state.detail = value,
+        setVideo : (sate) => state.video = value,
     },
     actions  : {
-        searchRankings : ({commit},value) => {
-            console.log(value)
+        actApi : ({commit},value) => {
             axios({
                 method : 'get',
-                url : 'http://localhost:3000/movie/rankings',
+                url : 'http://localhost:3000/movie/getData',
+                params : {
+                    apiLink : value
+                }
             }).then((responses)=>{
-                console.log(responses.data.results)
-                commit('setRankings',responses.data.results)
-            })
-        },
-        searchDetails : ({commit},value) => {
-            axios({
-                method : 'get',
-                url : `http://localhost:3000/movie/details/${value}`
-            }).then((responses)=>{
+                console.log(responses.data.mutationName)
                 console.log(responses.data)
-                commit('setDetails',responses.data)
+                commit(responses.data.mutationName,responses.data.apiData)
             })
         }
     }

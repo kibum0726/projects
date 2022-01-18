@@ -11,18 +11,25 @@ const request = axios.create({
     language: "ko-KR",
   }
 });
-router.get('/rankings',async function(req, res, next){
-    request.get("movie/popular")
-        .then((responses)=>{
-            res.json(responses.data)})
-        .catch((err)=>{res.json(err)})
+router.get('/getData',async function(req, res){
+    let urlLink = req.query.apiLink || req.body.apiLink
+    let splitLink = (urlLink || '').split('/')
+    let mutationName;
+    switch (splitLink[splitLink.length - 1]){
+        case 'popular' : mutationName = 'setRankings'
+            break;
+        case 'videos' : id = 'setVideo'
+            break;
+        default : mutationName = 'setDetails'
+    }
+    console.log(urlLink + 'qwe')
+    request.get(urlLink)
+            .then((responses)=>{
+                res.json({
+                    apiData : responses.data,
+                    mutationName : mutationName
+                })
+            })
+            .catch((err)=>{res.json(err)})
 })
-router.get('/details/:id',async function(req,res){
-    request.get(`movie/${req.params.id}`)
-        .then((responses)=>{
-            console.log(responses)
-            res.json(responses.data)})
-        .catch((err)=>{res.json(err)})
-})
-
 module.exports = router;

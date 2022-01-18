@@ -1,17 +1,17 @@
 <template>
   <Search/>
   <ButtonGroup/><br/>
-  <Rank/>
+  <MovieTable/>
 </template>
 
 <script>
 import Search from '@/components/main/Search'
-import Rank from '@/components/main/Rank'
+import MovieTable from '@/components/main/movieTable'
 import ButtonGroup from '@/components/common/ButtonGroup'
 export default {
   name: "MainPage",
   components : {
-    Search,Rank,ButtonGroup
+    Search,MovieTable,ButtonGroup
   },
   setup(){
   }
